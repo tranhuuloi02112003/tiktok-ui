@@ -94,10 +94,33 @@
     background-color: rgba(22, 24, 35, 0.06);
   }
 }
+// Action
+.actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-btn{
+  font-size: 2.2rem;
+  color: #161823;
+  background-color: transparent;
+  padding: 4px 11px;
+  cursor: pointer;
+}
 
 .more-btn {
   font-size: 2rem;
   margin-left: 24px;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.user-avatar{
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 15px;
   cursor: pointer;
 }
