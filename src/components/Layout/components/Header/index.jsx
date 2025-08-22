@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // import Tippy from "@tippyjs/react";
 import Tippy from "@tippyjs/react";
 import classNames from "classnames/bind";
@@ -22,6 +23,7 @@ import Button from "@/components/Button";
 import Menu from "@/components/Popper/Menu";
 import Image from "@/components/Image";
 import Search from "../Search";
+import routesConfig from "@/config/router";
 
 const cx = classNames.bind(styles);
 
@@ -57,7 +59,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-
   const handleMenuChange = (menuItem) => {
     console.log("Menu item selected:", menuItem);
   };
@@ -81,7 +82,7 @@ function Header() {
       to: "/settings",
     },
     ...MENU_ITEMS,
-     {
+    {
       icon: <FontAwesomeIcon icon={faSignOut} />,
       title: "Log out",
       to: "/logout",
@@ -92,7 +93,10 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <img src={images.logo} alt="Tiktok" />
+        <Link to={routesConfig.home} className={cx("logo")}>
+          {" "}
+          <img src={images.logo} alt="Tiktok" />
+        </Link>
         <Search />
         <div className={cx("actions")}>
           {currentUser ? (

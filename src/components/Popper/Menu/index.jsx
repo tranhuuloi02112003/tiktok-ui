@@ -9,7 +9,7 @@ import Header from "./Header";
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
+function Menu({ children, items = [], hideOnClick = false, onChange ,...passProps}) {
   const [history, setHistory] = useState([{ data: items }]);
 
   const currentItems = history[history.length - 1].data;
@@ -35,9 +35,11 @@ function Menu({ children, items = [], onChange }) {
   return (
     <Tippy
       // visible
+      {...passProps}
       interactive
       delay={[0, 500]}
       offset={[12, 8]}
+      hideOnClick={hideOnClick}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
@@ -50,13 +52,14 @@ function Menu({ children, items = [], onChange }) {
                 }}
               />
             )}
-            {renderItems}
+            <div className={cx("menu-body")}>{renderItems}</div>
           </PopperWrapper>
         </div>
       )}
       onHide={() => {
         setHistory((prev) => prev.slice(0, 1));
       }}
+
     >
       {children}
     </Tippy>
