@@ -6,7 +6,7 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "@/components/Popper";
 import AccountItem from "@/components/AccountItem";
 import styles from "./Search.module.scss";
-import * as searchService from "@/apiServices/SearchServices";
+import * as searchService from "@/services/SearchService";
 import {
   faCircleXmark,
   faSpinner,
