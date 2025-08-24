@@ -2,6 +2,7 @@ import config from "@/config";
 import styles from "./Sidebar.module.scss";
 import classNames from "classnames/bind";
 import Menu, { MenuItem } from "./Menu";
+import SuggestedAccounts from "../SuggestedAccounts";
 
 const cx = classNames.bind(styles);
 
@@ -57,6 +58,8 @@ function Sidebar() {
           }
         />
       </Menu>
+      <SuggestedAccounts label="Suggested Accounts" />
+      <SuggestedAccounts label="Following accounts" />
     </aside>
   );
 }
